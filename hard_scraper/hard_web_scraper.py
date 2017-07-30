@@ -1,6 +1,8 @@
 
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
+
 path = "http://forecast.weather.gov/MapClick.php?lat=32.7157&lon=-117.1617"
 page = requests.get(path)
 
@@ -12,7 +14,8 @@ short_descs = [sd.get_text() for sd in seven_day.select(".tombstone-container .s
 temps = [t.get_text() for t in seven_day.select(".tombstone-container .temp")]
 descs = [d["title"] for d in seven_day.select(".tombstone-container img")]
 
-print(period_tags)
-print(short_descs)
-print(temps)
-print(descs)
+weather = pd.DataFrame({
+        "period": period_tags, "short_desc": short_descs, "temp": temps, "desc":descs
+    })
+
+print(weather)
