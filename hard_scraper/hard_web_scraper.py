@@ -2,6 +2,7 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import csv
 
 path = "http://forecast.weather.gov/MapClick.php?lat=32.7157&lon=-117.1617"
 page = requests.get(path)
@@ -19,3 +20,7 @@ weather = pd.DataFrame({
     })
 
 print(weather)
+
+path = "hard_scraper/weather_1.csv"
+
+weather.to_csv(path, index=False)
