@@ -15,4 +15,8 @@ NY = pd.DataFrame({
             "city in NY": city_name_NY,
             "zip code": zipcode_NY,
             "longitude and latitude": lon_and_lat_NY})
-print(NY)
+
+NY.to_csv('NY.csv', index=False)
+
+lon_lat_NY = NY.loc[NY['zip code'] == "10003"]
+print(lon_lat_NY)
