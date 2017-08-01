@@ -21,5 +21,6 @@ NY.to_csv('NY.csv', index=False)
 lon_lat_NY = NY.loc[NY['zip code'] == "10003"]
 lon = list(lon_lat_NY["longitude and latitude"])[0]
 a, b = lon.split("/")
-print(a)
-print(b)
+
+url = "http://forecast.weather.gov/MapClick.php?lat={0}&lon={1}".format(a,b)
+print(url)
