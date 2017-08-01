@@ -20,5 +20,6 @@ NY.to_csv('NY.csv', index=False)
 
 lon_lat_NY = NY.loc[NY['zip code'] == "10003"]
 lon = list(lon_lat_NY["longitude and latitude"])[0]
-
-print(lon)
+a, b = lon.split("/")
+print(a)
+print(b)
