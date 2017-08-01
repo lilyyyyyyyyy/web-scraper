@@ -17,8 +17,9 @@ NY = pd.DataFrame({
             "longitude and latitude": lon_and_lat_NY})
 
 NY.to_csv('NY.csv', index=False)
+identifier = input("Please enter the ZIP code: " )
 
-lon_lat_NY = NY.loc[NY['zip code'] == "10003"]
+lon_lat_NY = NY.loc[NY['zip code'] == identifier]
 lon = list(lon_lat_NY["longitude and latitude"])[0]
 a, b = lon.split("/")
 
