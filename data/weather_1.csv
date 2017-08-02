@@ -1,0 +1,10 @@
+desc,period,short_desc,temp
+"This Afternoon: A 20 percent chance of showers and thunderstorms.  Partly sunny, with a high near 78. Southwest wind around 5 mph. ",ThisAfternoon,Slight ChanceT-storms,High: 78 °F
+"Tonight: A 20 percent chance of showers and thunderstorms.  Patchy fog after 11pm.  Otherwise, mostly cloudy, with a low around 71. Southwest wind around 5 mph becoming calm  in the evening. ",Tonight,Slight ChanceT-storms andPatchy Fog,Low: 71 °F
+"Wednesday: A 30 percent chance of showers and thunderstorms, mainly before 11am.  Patchy fog before 11am.  Otherwise, partly sunny, with a high near 80. Calm wind becoming west around 5 mph in the afternoon. ",Wednesday,ChanceT-storms andPatchy Fog,High: 80 °F
+"Wednesday Night: A 20 percent chance of showers and thunderstorms.  Partly cloudy, with a low around 72. Southwest wind around 5 mph becoming calm  in the evening. ",WednesdayNight,Slight ChanceT-storms,Low: 72 °F
+"Thursday: Patchy fog before 11am.  Otherwise, mostly sunny, with a high near 80. Calm wind becoming southwest around 5 mph in the afternoon. ",Thursday,Patchy Fogthen Sunny,High: 80 °F
+"Thursday Night: Patchy fog after 11pm.  Otherwise, partly cloudy, with a low around 72.",ThursdayNight,Patchy Fog,Low: 72 °F
+"Friday: Patchy fog before 11am.  Otherwise, mostly sunny, with a high near 80.",Friday,Patchy Fogthen Sunny,High: 80 °F
+"Friday Night: Patchy fog after 11pm.  Otherwise, partly cloudy, with a low around 71.",FridayNight,Patchy Fog,Low: 71 °F
+"Saturday: Patchy fog before 11am.  Otherwise, mostly sunny, with a high near 79.",Saturday,Patchy Fogthen Sunny,High: 79 °F
