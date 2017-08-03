@@ -4,13 +4,22 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import csv
 
-path = "http://api.geonames.org/postalCodeSearch?"
-parameters1 = {"postalcode": 10003, "country": "US", "username":  "emililyyyyyyy"}
-response1 = requests.get(path, params = parameters1 )
-soup1 = BeautifulSoup(response1.content, 'html.parser')
+menu = """
+Step 1: Please create an account on http://www.geonames.org/
+Step 2: Please go to http://www.geonames.org/manageaccount and enable your account for free web services
+Step 3: Please enter your username:
+"""
+postalcode = input("Please enter the ZIP code of the city your want to know: ")
 
-lat = [la.get_text() for la in soup1.select("lat")][0]
-lon = [l.get_text() for l in soup1.select("lng")][0]
+username = input(menu)
+
+path = "http://api.geonames.org/postalCodeSearch?"
+parameters1 = {"postalcode": postalcode, "country": "US", "username":  username, "type": "json"}
+response1 = requests.get(path, params = parameters1 )
+data1 = response1.json()
+
+lat = data1["postalCodes"][0]["lat"]
+lon = data1["postalCodes"][0]["lng"]
 
 url = "https://api.weather.gov/points/{0},{1}/forecast" .format(lat, lon)
 
