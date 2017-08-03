@@ -3,20 +3,39 @@ import json
 from bs4 import BeautifulSoup
 import pandas as pd
 import csv
+import sys
 
 menu = """
 Step 1: Please create an account on http://www.geonames.org/
 Step 2: Please go to http://www.geonames.org/manageaccount and enable your account for free web services
 Step 3: Please enter your username:
 """
-postalcode = input("Please enter the ZIP code of the city your want to know: ")
 
 username = input(menu)
+postalcode = input("Please enter the ZIP code of the city your want to know: ")
 
 path = "http://api.geonames.org/postalCodeSearch?"
 parameters1 = {"postalcode": postalcode, "country": "US", "username":  username, "type": "json"}
 response1 = requests.get(path, params = parameters1 )
 data1 = response1.json()
+
+try:
+    result1 = data1["status"]["value"]
+    print("Oops username or ZIP code doesn't exist")
+    sys.exit(1)
+except KeyError:
+    pass
+
+try:
+    result2 = data1["postalCodes"][0]["lat"]
+except IndexError:
+    print("Oops username or ZIP code doesn't exist")
+    sys.exit(1)
+
+#For my own notes: the flaw is that when username and
+#ZIP code don't exist at the same time, the system can't
+#find out which one.
+
 
 lat = data1["postalCodes"][0]["lat"]
 lon = data1["postalCodes"][0]["lng"]
