@@ -53,9 +53,13 @@ temp = [x['temperature'] for x in data_extract]
 
 weather = pd.DataFrame({
         "period": period_tags,
-        "short_desc": short_descs,
-        "temp": temp,
-        "desc":descs
+        "short description": short_descs,
+        "temperature(°F)": temp,
+        "full description":descs
     })
 
 print(weather)
+
+path_2 = "data/weather_2.csv"
+
+weather.to_csv(path_2, index=False)

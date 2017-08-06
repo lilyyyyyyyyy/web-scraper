@@ -3,8 +3,10 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import csv
+import re
 
-acronym_of_state_name = input("Please enter the acronym of state you are interested in: ")
+
+acronym_of_state_name = input("Please enter the acronym of state in uppercase you are interested in: ")
 
 page = requests.get("http://www.geonames.org/postalcode-search.html?q=&country=US&adminCode1={0}".format(acronym_of_state_name))
 soup = BeautifulSoup(page.content, 'html.parser')
@@ -41,12 +43,16 @@ short_descs = [sd.get_text() for sd in seven_day.select(".tombstone-container .s
 temps = [t.get_text() for t in seven_day.select(".tombstone-container .temp")]
 descs = [d["title"] for d in seven_day.select(".tombstone-container img")]
 
+
 weather = pd.DataFrame({
-        "period": period_tags, "short_desc": short_descs, "temp": temps, "desc":descs
+        "period": period_tags,
+        "short description": short_descs,
+        "temp": temps,
+        "full description":descs
     })
 
 print(weather)
 
-path = "/Users/lily/Desktop/web-scraper/data/weather_1.csv"
+path = "data/weather_1.csv"
 
 weather.to_csv(path, index=False)
