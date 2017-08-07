@@ -15,3 +15,16 @@ git clone https://github.com/lilyyyyyyyyy/web-scraper.git
 cd web-scraper
 
 python3 path/path/
+
+# required package
+json
+
+pandas
+
+requests
+
+BeautifulSoup
+
+csv
+
+sys
